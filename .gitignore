@@ -1,0 +1,22 @@
+# Dependencies and builds
+node_modules/
+dist/
+src-tauri/target/
+*.log
+*.local
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.sw?
+
+# Local secrets and app state
+.env
+.env.*
+!.env.example
+character-triptych-prompt.json
+
+# Generated test output
+coverage/

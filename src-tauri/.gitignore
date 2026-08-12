@@ -1,0 +1,10 @@
+/target/
+/gen/schemas/
+
+# Generated mobile/store icon variants are not used by this desktop app.
+/icons/android/
+/icons/ios/
+/icons/64x64.png
+/icons/icon.png
+/icons/Square*Logo.png
+/icons/StoreLogo.png
