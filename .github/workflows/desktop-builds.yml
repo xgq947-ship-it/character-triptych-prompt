@@ -96,7 +96,7 @@ jobs:
         shell: bash
         run: |
           cd release-artifacts
-          find . -type f \( -name '*.dmg' -o -name '*.exe' \) -print0 +            | sort -z +            | xargs -0 sha256sum > SHA256SUMS.txt
+          find . -type f \( -name '*.dmg' -o -name '*.exe' \) -print0 | sort -z | xargs -0 -r sha256sum > SHA256SUMS.txt
           test -s SHA256SUMS.txt
 
       - name: Publish release
@@ -106,4 +106,4 @@ jobs:
         run: |
           mapfile -d '' assets < <(find release-artifacts -type f -print0)
           test "${#assets[@]}" -ge 3
-          gh release create "$GITHUB_REF_NAME" "${assets[@]}" +            --repo "$GITHUB_REPOSITORY" +            --title "Character Triptych $GITHUB_REF_NAME" +            --generate-notes +            --verify-tag
+          gh release create "$GITHUB_REF_NAME" "${assets[@]}" --repo "$GITHUB_REPOSITORY" --title "Character Triptych $GITHUB_REF_NAME" --generate-notes --verify-tag
